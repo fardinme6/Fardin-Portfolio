@@ -80,7 +80,7 @@ Open the local URL displayed in your terminal.
 
 **Fardin Mehry**
 
-- GitHub: [Fardin Mehry](https://github.com/FardinMehry7)
+- GitHub: [Fardin Mehry](https://github.com/fardinme6)
 - Email: fardinmehry7@gmail.com
 
 ## License

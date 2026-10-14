@@ -5,7 +5,10 @@ export default function About() {
     <section className="about panel" id="about">
       <div className="about-photo">
         <div className="avatar-ring">
-          <img src="/profile.png" alt="Fardin Mehry" className="about-avatar" />
+          <div className="avatar-flip">
+          <img src="/profile.png" alt="Fardin Mehry" className="about-avatar avatar-front" />
+          <img src="/profile2.png" alt="Fardin Mehry" className="about-avatar avatar-back" />
+          </div>
         </div>
       </div>
 

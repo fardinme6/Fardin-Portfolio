@@ -21,17 +21,17 @@ export default function Projects() {
 
         <ProjectCard
           title="Dark Mode Website"
-          description="A simple and elegant website with a dark/light mode toggle and smooth transitions using React and CSS."
+          description="A simple and elegant website with a dark/light mode toggle and smooth transitions using React and CSS and Javascript."
           image="/DarkMode.png"
-          link="#contact"
+          link="https://dark-mode-project-tau.vercel.app/"
           tags={["JavaScript", "React", "CSS"]}
         />
 
         <ProjectCard
           title="Football Players Website"
-          description="A personal portfolio website with a clean design, projects, skills and contact section. Built with React, CSS and JavaScript."
+          description="A responsive football players website built with React, JavaScript, and CSS. It displays player profiles, including their names, teams, positions, nationalities, and ages, with a clean and user-friendly design."
           image="/FootballPlayers.png"
-          link="#home"
+          link="https://football-players-webpage.vercel.app"
           tags={["JavaScript", "React", "CSS"]}
         />
       </div>

@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <header className="navbar">
       <a className="logo" href="#home">
-        <span className="logo-mark">&lt;/&gt;</span> Fardin
+        <span className="logo-mark">&lt;FM/&gt;</span> 
       </a>
       <nav aria-label="Main navigation">
         <a className="active" href="#home">Home</a>

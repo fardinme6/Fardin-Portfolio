@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
-/* استایل اصلی سایت */
-
 :root {
   --bg: #031523;
   --panel: #041b2b;
@@ -22,9 +20,36 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 0;
+}
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 50px;
+  height: 50px;
+  background: var(--cyan);
+  color: #002236;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
 }
 
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: #65e5ff;
+  transform: translateY(-3px);
+}
 body {
   font-family: Inter, Arial, sans-serif;
   color: var(--text);
@@ -42,16 +67,9 @@ a {
 
 .page-grid {
   width: 100%;
-  margin: 0;
   display: flex;
-  gap: 0;
   align-items: stretch;
   flex-direction: column;
-}
-
-.left-column,
-.right-column {
-  display: contents;
 }
 
 .panel {
@@ -131,7 +149,7 @@ a {
 }
 
 .eyebrow {
-  font-size: clamp(20px, 2vw, 27px);
+  font-size: 27px;
   color: var(--cyan);
   margin-bottom: 8px;
 }
@@ -327,9 +345,6 @@ a {
 .fact-icon {
   font-size: 30px;
   color: var(--cyan);
-}
-
-.projects {
 }
 
 .projects .section-title {
@@ -607,45 +622,6 @@ a {
   color: var(--cyan);
 }
 
-.back-to-top {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 1000;
-  width: 54px;
-  height: 54px;
-  border: 1px solid #62eaff;
-  border-radius: 10px;
-  background: var(--cyan);
-  color: #002236;
-  font-size: 31px;
-  font-weight: 800;
-  line-height: 1;
-  box-shadow:
-    0 6px 24px #0007,
-    0 0 18px #08c7f255;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition:
-    opacity 0.2s,
-    transform 0.2s,
-    visibility 0.2s,
-    background 0.2s;
-}
-
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.back-to-top:hover {
-  background: #65e5ff;
-  transform: translateY(-3px);
-}
-
 .projects,
 .journey,
 .skills,
@@ -654,8 +630,7 @@ a {
 }
 
 .contact input,
-.contact textarea,
-.contact select {
+.contact textarea {
   font: inherit;
   font-size: 16px;
   padding: 14px 16px;
@@ -714,19 +689,6 @@ a {
   border-color: var(--cyan);
 }
 
-.send-btn {
-  justify-self: center;
-  min-width: 220px;
-  margin-top: 2px;
-}
-
-/* نمایش در صفحه‌های کوچک */
-
-/* =========================
-   Responsive: Tablet
-
-   ========================= */
-
 @media (min-width: 801px) and (max-width: 1250px) {
   .hero-copy {
     width: 52%;
@@ -740,8 +702,7 @@ a {
     font-size: clamp(36px, 4vw, 48px);
   }
 
-  .hero h2,
-  .hero-copy h2 {
+  .hero h2 {
     font-size: clamp(21px, 2.2vw, 27px);
   }
 
@@ -754,11 +715,6 @@ a {
     justify-content: flex-end;
   }
 }
-
-/* =========================
-   Responsive: Mobile
-
-   ========================= */
 
 @media (max-width: 800px) {
   body {
@@ -846,8 +802,7 @@ a {
     overflow-wrap: anywhere;
   }
 
-  .hero h2,
-  .hero-copy h2 {
+  .hero h2 {
     font-size: clamp(20px, 4.5vw, 27px);
     line-height: 1.4;
     margin: 12px 0 16px;
@@ -999,9 +954,8 @@ a {
     font-size: clamp(27px, 8vw, 35px);
   }
 
-  .hero h2,
-  .hero-copy h2 {
-    font-size: clamp(19px, 5.3vw, 23px);
+  .hero h2 {
+    font-size: clamp(19px, 5.3vw, 27px);
   }
 
   .intro {
@@ -1044,12 +998,5 @@ a {
 
   .section-title {
     font-size: clamp(25px, 7vw, 32px);
-  }
-
-  .back-to-top {
-    right: 14px;
-    bottom: 14px;
-    width: 42px;
-    height: 42px;
   }
 }

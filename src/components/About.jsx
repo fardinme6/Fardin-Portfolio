@@ -14,8 +14,8 @@ export default function About() {
           About <span>Me</span>
         </h2>
         <p>
-          Hi! I'm <strong>Fardin Mehry</strong>, a Computer Science student,
-          <strong> Frontend Developer</strong>, and
+          I'm <strong>Fardin Mehry</strong>, a Computer Science student,
+          <strong> Web Frontend Developer</strong>, and
           <strong> Mobile App Developer</strong> from Herat, Afghanistan. I
           enjoy building modern, responsive, and user-friendly websites using{" "}
           <strong>HTML, CSS, JavaScript, and React</strong>, as well as

@@ -6,6 +6,7 @@ import Journey  from './components/Journey'
 import Skills  from './components/Skills'
 import Contact  from './components/Contact'
 import Footer  from './components/Footer'
+import BackToTop from './components/BackToTop.jsx'
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
       <Skills/>
       <Contact/>
       <Footer/>
+      <BackToTop/>
     </main>
     </>
   )

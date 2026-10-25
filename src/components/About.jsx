@@ -7,7 +7,7 @@ export default function About() {
         <div className="avatar-ring">
           <div className="avatar-flip">
           <img src="/profile.png" alt="Fardin Mehry" className="about-avatar avatar-front" />
-          <img src="/profile2.png" alt="Fardin Mehry" className="about-avatar avatar-back" />
+          <img src="/fardin1.png" alt="Fardin Mehry" className="about-avatar avatar-back" />
           </div>
         </div>
       </div>

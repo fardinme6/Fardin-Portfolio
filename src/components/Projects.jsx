@@ -1,39 +1,70 @@
-import ProjectCard from "./ProjectCard.jsx";
+import { useEffect, useState } from "react";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../firebase/config";
+import { originalProjects } from "../data/originalProjects";
+import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
+  const [savedProjects, setSavedProjects] = useState([]);
+  const [hiddenIds, setHiddenIds] = useState([]);
+
+  useEffect(() => {
+    const stop = onSnapshot(collection(db, "projects"), (result) => {
+      const data = result.docs.map((item) => ({
+        id: item.id,
+        ...item.data(),
+      }));
+
+      setSavedProjects(data);
+    });
+
+    const stopHidden = onSnapshot(
+      collection(db, "hiddenProjects"),
+      (result) => {
+        setHiddenIds(result.docs.map((item) => item.id));
+      }
+    );
+
+    return () => {
+      stop();
+      stopHidden();
+    };
+  }, []);
+
+  // پروژه‌های قدیمی که هنوز به دیتابیس انتقال داده نشده‌اند
+  const oldProjects = originalProjects.filter(
+    (old) =>
+      !hiddenIds.includes(old.id) &&
+      !savedProjects.some(
+        (project) =>
+          project.id === old.id || project.title === old.title
+      )
+  );
+
+  // ترکیب پروژه‌های قدیمی و جدید
+  const projects = [...oldProjects, ...savedProjects];
+
   return (
     <section className="projects panel" id="projects">
       <h2 className="section-title">
         My <span>Projects</span>
       </h2>
+
       <p className="section-subtitle">
         A few things I've been building and learning from.
       </p>
 
       <div className="project-grid">
-        <ProjectCard
-          title="Movie Browser"
-          description="A responsive movie browsing web app with search, filters and a clean UI. Built with React and modern CSS."
-          image="/Movies.png"
-          link="https://moviescards.fardinmehry7.workers.dev/"
-          tags={["JavaScript", "React", "CSS"]}
-        />
-
-        <ProjectCard
-          title="Dark Mode Website"
-          description="A simple and elegant website with a dark/light mode toggle and smooth transitions using React and CSS and Javascript."
-          image="/DarkMode.png"
-          link="https://dark-mode-project-tau.vercel.app/"
-          tags={["JavaScript", "React", "CSS"]}
-        />
-
-        <ProjectCard
-          title="Football Players Website"
-          description="A responsive football players website built with React, JavaScript, and CSS. It displays player profiles, including their names, teams, positions, nationalities, and ages, with a clean and user-friendly design."
-          image="/FootballPlayers.png"
-          link="https://football-players-webpage.vercel.app"
-          tags={["JavaScript", "React", "CSS"]}
-        />
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            link={project.link}
+            tags={project.tags || []}
+          />
+        ))}
       </div>
     </section>
   );

@@ -50,7 +50,7 @@ export default function Home() {
       </div>
 
       <div className="hero-portrait">
-        <img src="/profile1.png" alt="Fardin Mehry" className="profile-photo" />
+        <img src="/fardin.PNG" alt="Fardin Mehry" className="profile-photo" />
       </div>
     </>
   );

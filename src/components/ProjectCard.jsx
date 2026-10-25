@@ -16,7 +16,7 @@ export default function ProjectCard({ title, description, image, tags, link }) {
           ))}
         </div>
 
-        <a className="btn primary small" href={link} target="_blank">
+        <a className="btn primary small" href={link} target="_blank" rel="noopener noreferrer">
           View Project <span>→</span>
         </a>
       </div>

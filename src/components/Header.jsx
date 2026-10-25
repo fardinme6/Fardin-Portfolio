@@ -4,7 +4,7 @@ export default function Header() {
       <a className="logo" href="#home">
         <span className="logo-mark">&lt;FM/&gt;</span> 
       </a>
-      <nav aria-label="Main navigation">
+      <nav>
         <a className="active" href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>

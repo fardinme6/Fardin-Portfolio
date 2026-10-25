@@ -166,7 +166,7 @@ export default function Admin() {
     }),
   });
 
-  const result = await response.json();
+  const result = await response.json().catch(() => ({}));
 
   if (!response.ok) {
     throw new Error(result.error || "Upload failed");
@@ -253,7 +253,9 @@ export default function Admin() {
       });
     }
 
-    await deleteDoc(doc(db, "projects", project.id));
+    if (projects.some((item) => item.id === project.id)) {
+      await deleteDoc(doc(db, "projects", project.id));
+    }
 
     setMessage("Project deleted successfully!");
   } catch {

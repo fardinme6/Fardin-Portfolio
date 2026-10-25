@@ -1,0 +1,20 @@
+Portfolio CMS - important deployment steps
+
+1. In Vercel > Project > Settings > Environment Variables set:
+   AWS_ENDPOINT_URL_S3, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION,
+   FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY, ADMIN_UID,
+   NEON_STORAGE_BUCKET (EXACT name of your PUBLIC Neon bucket).
+   Optional: NEON_PUBLIC_URL (public bucket base URL, including bucket path if needed).
+   Never commit your .env.local or Firebase service account JSON.
+
+2. Deploy Firestore rules from firestore.rules to Firebase Console > Firestore > Rules > Publish.
+   The existing administrator UID in those rules has been preserved. Verify it matches ADMIN_UID.
+
+3. npm install && npm run build; then commit/push to the existing GitHub repository.
+
+4. Test /admin and upload a JPG/PNG/WebP under 2MB. Check that the returned image opens publicly.
+   If Neon provides a different public object URL, set NEON_PUBLIC_URL to the correct
+   bucket base URL and redeploy.
+
+5. Important: This ZIP does not contain secrets; use the values from your existing .env.local.
+   The API has not been live-tested against your Neon bucket or Vercel account.

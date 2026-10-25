@@ -2,6 +2,8 @@ import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { getApps, initializeApp, cert } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import { randomUUID } from 'node:crypto';
+import {Buffer} from "node:buffer";
+import process from 'node:process';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });

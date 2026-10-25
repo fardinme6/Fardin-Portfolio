@@ -424,6 +424,7 @@ a {
 
 .tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin: 13px 0 17px;
 }
